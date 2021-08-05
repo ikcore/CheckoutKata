@@ -1,7 +1,6 @@
 using CheckoutKata.Domain;
 using CheckoutKata.Services;
 using CheckoutKata.Test.Mocks;
-using System;
 using Xunit;
 
 namespace CheckoutKata.Test

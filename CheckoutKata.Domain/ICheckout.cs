@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CheckoutKata.Domain
+﻿namespace CheckoutKata.Domain
 {
     public interface ICheckout
     {

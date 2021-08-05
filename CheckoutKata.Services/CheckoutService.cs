@@ -33,7 +33,7 @@ namespace CheckoutKata.Services
                 // handle special cases first
                 if (model.SpecialPrice != null)
                 {
-                    // should anything less than whole int will floor to lowest value
+                    // should quantity/threshold be less than whole int, it will floor to lowest value
                     int numberOfSpecialsTriggered = quantity / model.SpecialPrice.Threshold;
                     int remainderOfItems = quantity % model.SpecialPrice.Threshold;
 
