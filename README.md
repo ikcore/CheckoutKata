@@ -19,4 +19,6 @@ I have split the test into 3 projects Domain, Services and Test
 I have opted to inject the repository in the contructor of the checkout service as this seems like it will always be a requirement.
 I can manually inject a mock repo for testing but because I'm using the IItemRepository interface this can be changed for other implimentations via DI
 
-Also of note that the unit price type is an int so that needs to be consitant
+### Notes 
+The unit price type is an int so that needs to be consitant
+I have implimented simple exceptions. In real world app I would impliment custom exceptions and define them as part of the domain
