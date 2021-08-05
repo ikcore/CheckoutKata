@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CheckoutKata.Test.Mocks
 {
-    public class ItemRepositoryMock
+    public class ItemRepositoryMock : IItemRepository
     {
         public readonly Dictionary<string, ItemModel> Items = new Dictionary<string, ItemModel>()
         {
@@ -48,5 +48,10 @@ namespace CheckoutKata.Test.Mocks
                 }
             }
         };
+
+        public ItemModel GetItemBySKU(string sku)
+        {            
+            return Items.ContainsKey(sku) ? Items[sku] : null;
+        }
     }
 }
