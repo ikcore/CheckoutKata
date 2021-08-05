@@ -22,7 +22,31 @@ namespace CheckoutKata.Services
 
         public int GetTotalPrice()
         {
-            throw new NotImplementedException();
+            int total = 0;
+
+            foreach(var item in _items)
+            {                
+                var quantity = item.Value;
+                var sku = item.Key;
+                var model = _itemRepository.GetItemBySKU(sku);
+
+                // handle special cases first
+                if (model.SpecialPrice != null)
+                {
+                    // should anything less than whole int will floor to lowest value
+                    int numberOfSpecialsTriggered = quantity / model.SpecialPrice.Threshold;
+                    int remainderOfItems = quantity % model.SpecialPrice.Threshold;
+
+                    total += numberOfSpecialsTriggered * model.SpecialPrice.UnitPrice;
+                    total += remainderOfItems * model.UnitPrice;
+                }
+                else
+                {
+                    total += model.UnitPrice * quantity;
+                }
+            }
+
+            return total;
         }
 
         public void Scan(string item)
