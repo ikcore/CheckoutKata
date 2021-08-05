@@ -1,5 +1,11 @@
 # Checkout Kata Technical Test
 
+To run test just use CL command
+```
+dotnet test
+```
+or run tests in VS
+
 After reading the breif it is clear that this is aimed at handling the quirks of the special pricing
 As it is test driven we need to look at all combinations of cases.
 
