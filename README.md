@@ -12,6 +12,11 @@ As it is test driven we need to look at all combinations of cases.
 
 There was also an emphesis on decoupling the items data from the checkout so it seems logical that the test is looking for its own repository
 I have split the test into 3 projects Domain, Services and Test
-The domain project will have our interface(s) and some simple models
-The services project will have our checkout service implimentation
-The test will have the above unit tests + a mock of the repository as no mention of its implimentation was mentioned or suggested
+- The domain project will have our interface(s) and some simple models
+- The services project will have our checkout service implimentation
+- The test will have the above unit tests + a mock of the repository as no mention of its implimentation was mentioned or suggested
+
+I have opted to inject the repository in the contructor of the checkout service as this seems like it will always be a requirement.
+I can manually inject a mock repo for testing but because I'm using the IItemRepository interface this can be changed for other implimentations via DI
+
+Also of note that the unit price type is an int so that needs to be consitant

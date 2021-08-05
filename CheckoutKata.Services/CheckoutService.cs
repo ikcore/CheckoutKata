@@ -5,6 +5,13 @@ namespace CheckoutKata.Services
 {
     public class CheckoutService : ICheckout
     {
+        private readonly IItemRepository _itemRepository;
+
+        public CheckoutService(IItemRepository itemRepository)
+        {
+            _itemRepository = itemRepository;
+        }
+
         public int GetTotalPrice()
         {
             throw new NotImplementedException();
